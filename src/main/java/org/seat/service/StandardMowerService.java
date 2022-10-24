@@ -150,6 +150,7 @@ public class StandardMowerService implements IMowerService {
                     if (!Pattern.matches("\\b[MRL]{1,99}\\b", line))
                         errorMessage.append("\n - line 3 and 5 can only have the values “L” for left turn, “R” for right turn and ”M” for movement in capital letters");
                 }
+                default -> errorMessage.append("Unknown error occured");
             }
 
             index++;
