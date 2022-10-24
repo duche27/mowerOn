@@ -1,6 +1,6 @@
 package org.seat;
 
-import org.seat.service.StandardIMowerService;
+import org.seat.service.StandardMowerService;
 import org.seat.service.IMowerService;
 
 import java.io.*;
@@ -13,7 +13,7 @@ public class Main {
 
         List<String> instructionsList = inputLoader();
 
-        IMowerService mowerService = new StandardIMowerService(instructionsList);
+        IMowerService mowerService = new StandardMowerService(instructionsList);
 
         mowerService.executeMovements();
     }
