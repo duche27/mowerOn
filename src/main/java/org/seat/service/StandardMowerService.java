@@ -2,6 +2,7 @@ package org.seat.service;
 
 import org.seat.enums.Movement;
 import org.seat.enums.Direction;
+import org.seat.exception.CustomException;
 import org.seat.model.Mower;
 
 import java.util.ArrayList;
@@ -15,7 +16,7 @@ public class StandardMowerService implements IMowerService {
     private Integer topBoundary;
     private List<Mower> mowers = new ArrayList<>();
 
-    public StandardMowerService(List<String> inputData) {
+    public StandardMowerService(List<String> inputData) throws CustomException {
 
         this.inputData = inputData;
 
@@ -98,7 +99,7 @@ public class StandardMowerService implements IMowerService {
     /**
      * Initializes the data related to both mowers
      */
-    private void dataInitialization() {
+    private void dataInitialization() throws CustomException {
 
         String[] plateauBoundaries = inputData.get(0).split(" ");
         String[] firstMowerData = inputData.get(1).split(" ");
@@ -115,7 +116,7 @@ public class StandardMowerService implements IMowerService {
 
         for (Mower mower : mowers) {
             if (mower.getX() > rightBoundary || mower.getY() > topBoundary)
-                throw new IllegalArgumentException("Initial position of the mower number " + index + " is outside the plateau");
+                throw new CustomException("Initial position of the mower number " + index + " is outside the plateau");
             index++;
         }
     }
@@ -123,13 +124,13 @@ public class StandardMowerService implements IMowerService {
     /**
      * Validates input data according to the specified input patters
      */
-    private void inputValidation() {
+    private void inputValidation() throws CustomException {
 
         StringBuilder errorMessage = new StringBuilder();
         int index = 1;
 
         if (inputData.size() != 5)
-            throw new IllegalArgumentException("""
+            throw new CustomException("""
                         \nIncorrect input format: 
                          - only 5 lines are needed -> upper-right coordinates of the plateau, the bottom-left
                         coordinates, initial position of the first mower, movement instructions of the first mower,
@@ -156,6 +157,6 @@ public class StandardMowerService implements IMowerService {
             index++;
         }
 
-        if (!errorMessage.isEmpty()) throw new IllegalArgumentException("\nIncorrect input format: " + errorMessage);
+        if (!errorMessage.isEmpty()) throw new CustomException("\nIncorrect input format: " + errorMessage);
     }
 }

@@ -1,5 +1,6 @@
 package org.seat;
 
+import org.seat.exception.CustomException;
 import org.seat.service.StandardMowerService;
 import org.seat.service.IMowerService;
 
@@ -9,7 +10,7 @@ import java.util.List;
 import java.util.Objects;
 
 public class Main {
-    public static void main(String[] args) throws FileNotFoundException {
+    public static void main(String[] args) throws FileNotFoundException, CustomException {
 
         List<String> instructionsList = inputLoader();
 
