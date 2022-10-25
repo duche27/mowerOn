@@ -1,4 +1,4 @@
-package org.seat.service;
+package org.seat.domain.service;
 
 import org.junit.jupiter.api.*;
 import org.seat.domain.exceptions.CustomException;
