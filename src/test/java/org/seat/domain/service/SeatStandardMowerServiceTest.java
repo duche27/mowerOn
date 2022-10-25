@@ -2,6 +2,8 @@ package org.seat.domain.service;
 
 import org.junit.jupiter.api.*;
 import org.seat.domain.exceptions.CustomException;
+import org.seat.domain.service.movementExecution.IMowerService;
+import org.seat.domain.service.movementExecution.SeatStandardMowerService;
 
 import java.io.ByteArrayOutputStream;
 import java.io.PrintStream;
@@ -10,7 +12,7 @@ import java.util.List;
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.junit.jupiter.api.Assertions.*;
 
-class StandardMowerServiceTest {
+class SeatStandardMowerServiceTest {
 
     private final PrintStream standardOut = System.out;
     private final ByteArrayOutputStream outputStreamCaptor = new ByteArrayOutputStream();
@@ -33,8 +35,8 @@ class StandardMowerServiceTest {
         List<String> inputOK = List.of("5 5", "1 2 N", "LMLMLMLMM", "3 3 E", "MMRMMRMRRM");
 
         // when
-        IMowerService mowerService = new StandardMowerService(inputOK);
-        mowerService.executeMovements();
+        IMowerService mowerService = new SeatStandardMowerService(inputOK);
+        mowerService.executeMowerMovements();
 
         // then
         assertThat(outputStreamCaptor.toString().trim()).contains("1 3 N");
@@ -51,7 +53,7 @@ class StandardMowerServiceTest {
 
         // when
         CustomException exception = assertThrows(CustomException.class, () ->
-            new StandardMowerService(inputWithout5LinesNotOK).executeMovements()
+            new SeatStandardMowerService(inputWithout5LinesNotOK).executeMowerMovements()
         );
 
         String actualMessage = exception.getFault().getResultDescription();
@@ -70,7 +72,7 @@ class StandardMowerServiceTest {
 
         // when
         CustomException exception = assertThrows(CustomException.class, () ->
-                new StandardMowerService(inputFirstMowerOutOfBoundariesNotOK).executeMovements()
+                new SeatStandardMowerService(inputFirstMowerOutOfBoundariesNotOK).executeMowerMovements()
         );
 
         String actualMessage = exception.getFault().getResultDescription();
@@ -89,7 +91,7 @@ class StandardMowerServiceTest {
 
         // when
         CustomException exception = assertThrows(CustomException.class, () ->
-                new StandardMowerService(inputIncorrectMovementsNotOK).executeMovements()
+                new SeatStandardMowerService(inputIncorrectMovementsNotOK).executeMowerMovements()
         );
 
         String actualMessage = exception.getFault().getResultDescription();

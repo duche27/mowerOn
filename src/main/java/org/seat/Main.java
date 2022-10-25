@@ -1,52 +1,21 @@
 package org.seat;
 
 import org.seat.domain.exceptions.CustomException;
-import org.seat.domain.service.StandardMowerService;
-import org.seat.domain.service.IMowerService;
+import org.seat.domain.service.dataLoader.IDataLoaderService;
+import org.seat.domain.service.dataLoader.TextFileDataLoaderService;
+import org.seat.domain.service.movementExecution.IMowerService;
+import org.seat.domain.service.movementExecution.SeatStandardMowerService;
 
-import java.io.*;
-import java.util.ArrayList;
 import java.util.List;
-import java.util.Objects;
 
 public class Main {
-    public static void main(String[] args) throws FileNotFoundException, CustomException {
+    public static void main(String[] args) throws CustomException {
 
-        List<String> instructionsList = inputLoader();
+        IDataLoaderService dataLoaderService = new TextFileDataLoaderService("input.txt");
+        List<String> instructionsList = dataLoaderService.loadData();
 
-        IMowerService mowerService = new StandardMowerService(instructionsList);
+        IMowerService mowerService = new SeatStandardMowerService(instructionsList);
 
-        mowerService.executeMovements();
-    }
-
-    /**
-     * Loads the data from the input file
-     * The file must be placed in the path src/main/resouce
-     *
-     * @return List<String> with the lines that have been read
-     */
-    private static List<String> inputLoader() throws FileNotFoundException {
-
-        ClassLoader classLoader = Main.class.getClassLoader();
-        File inputFile;
-        try {
-            inputFile = new File(Objects.requireNonNull(classLoader.getResource("input.txt")).getPath());
-        } catch (NullPointerException e) {
-            throw new NullPointerException("Input file not found in the resources folder");
-        }
-
-        String str;
-        List<String> instructionList = new ArrayList<>();
-
-        // the following line means the try block takes care of closing the resource
-        try (BufferedReader br = new BufferedReader(new FileReader(inputFile))) {
-            while ((str = br.readLine()) != null) {
-                instructionList.add(str);
-            }
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-
-        return instructionList;
+        mowerService.executeMowerMovements();
     }
 }
