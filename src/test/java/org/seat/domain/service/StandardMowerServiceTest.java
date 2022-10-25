@@ -2,8 +2,6 @@ package org.seat.domain.service;
 
 import org.junit.jupiter.api.*;
 import org.seat.domain.exceptions.CustomException;
-import org.seat.domain.service.IMowerService;
-import org.seat.domain.service.StandardMowerService;
 
 import java.io.ByteArrayOutputStream;
 import java.io.PrintStream;
