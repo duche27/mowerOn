@@ -1,8 +1,8 @@
 package org.seat;
 
-import org.seat.exception.CustomException;
-import org.seat.service.StandardMowerService;
-import org.seat.service.IMowerService;
+import org.seat.domain.exceptions.CustomException;
+import org.seat.domain.service.StandardMowerService;
+import org.seat.domain.service.IMowerService;
 
 import java.io.*;
 import java.util.ArrayList;

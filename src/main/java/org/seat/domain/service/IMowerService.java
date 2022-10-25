@@ -1,4 +1,4 @@
-package org.seat.service;
+package org.seat.domain.service;
 
 public interface IMowerService {
 

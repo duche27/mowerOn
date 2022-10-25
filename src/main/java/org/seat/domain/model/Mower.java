@@ -1,6 +1,6 @@
-package org.seat.model;
+package org.seat.domain.model;
 
-import org.seat.enums.Direction;
+import org.seat.domain.enums.Direction;
 
 public class Mower {
 

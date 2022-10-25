@@ -4,7 +4,9 @@ import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
-import org.seat.exception.CustomException;
+import org.seat.domain.exceptions.CustomException;
+import org.seat.domain.service.IMowerService;
+import org.seat.domain.service.StandardMowerService;
 
 import java.io.ByteArrayOutputStream;
 import java.io.PrintStream;

@@ -1,20 +1,18 @@
-package org.seat.service;
+package org.seat.domain.service;
 
-import org.seat.enums.Movement;
-import org.seat.enums.Direction;
-import org.seat.exception.CustomException;
-import org.seat.model.Mower;
+import org.seat.domain.exceptions.CustomException;
+import org.seat.domain.enums.Movement;
+import org.seat.domain.enums.Direction;
+import org.seat.domain.model.Mower;
+import org.seat.domain.model.Plateau;
 
-import java.util.ArrayList;
 import java.util.List;
 import java.util.regex.Pattern;
 
 public class StandardMowerService implements IMowerService {
 
     private final List<String> inputData;
-    private Integer rightBoundary;
-    private Integer topBoundary;
-    private List<Mower> mowers = new ArrayList<>();
+    private Plateau plateau = new Plateau();
 
     public StandardMowerService(List<String> inputData) throws CustomException {
 
@@ -32,7 +30,7 @@ public class StandardMowerService implements IMowerService {
      */
     public void executeMovements() {
 
-        mowers.forEach(mower -> {
+        plateau.getMowers().forEach(mower -> {
 
             for (String movement : mower.getMovements().split("")) {
 
@@ -53,7 +51,7 @@ public class StandardMowerService implements IMowerService {
         switch (mower.getDirection()) {
 
             case N -> {
-                if (mower.getY() < topBoundary) mower.setY(mower.getY() + 1);
+                if (mower.getY() < plateau.getTopBoundary()) mower.setY(mower.getY() + 1);
             }
 
             case S -> {
@@ -61,7 +59,7 @@ public class StandardMowerService implements IMowerService {
             }
 
             case E -> {
-                if (mower.getX() < rightBoundary) mower.setX(mower.getX() + 1);
+                if (mower.getX() < plateau.getRightBoundary()) mower.setX(mower.getX() + 1);
             }
 
             case W -> {
@@ -93,31 +91,6 @@ public class StandardMowerService implements IMowerService {
                 case E -> mower.setDirection(Direction.S);
                 case W -> mower.setDirection(Direction.N);
             }
-        }
-    }
-
-    /**
-     * Initializes the data related to both mowers
-     */
-    private void dataInitialization() throws CustomException {
-
-        String[] plateauBoundaries = inputData.get(0).split(" ");
-        String[] firstMowerData = inputData.get(1).split(" ");
-        String firstMowerMovements = inputData.get(2);
-        String[] secondMowerData = inputData.get(3).split(" ");
-        String secondMowerMovements = inputData.get(4);
-
-        rightBoundary = Integer.valueOf(plateauBoundaries[0]);
-        topBoundary = Integer.valueOf(plateauBoundaries[1]);
-        mowers.add(new Mower(Integer.parseInt(firstMowerData[0]), Integer.parseInt(firstMowerData[1]), Direction.valueOf(firstMowerData[2]), firstMowerMovements));
-        mowers.add(new Mower(Integer.parseInt(secondMowerData[0]), Integer.parseInt(secondMowerData[1]), Direction.valueOf(secondMowerData[2]), secondMowerMovements));
-
-        int index = 1;
-
-        for (Mower mower : mowers) {
-            if (mower.getX() > rightBoundary || mower.getY() > topBoundary)
-                throw new CustomException("Initial position of the mower number " + index + " is outside the plateau");
-            index++;
         }
     }
 
@@ -158,5 +131,32 @@ public class StandardMowerService implements IMowerService {
         }
 
         if (!errorMessage.isEmpty()) throw new CustomException("\nIncorrect input format: " + errorMessage);
+    }
+
+    /**
+     * Initializes the data related to both mowers
+     */
+    private void dataInitialization() throws CustomException {
+
+        String[] plateauBoundaries = inputData.get(0).split(" ");
+        String[] firstMowerData = inputData.get(1).split(" ");
+        String firstMowerMovements = inputData.get(2);
+        String[] secondMowerData = inputData.get(3).split(" ");
+        String secondMowerMovements = inputData.get(4);
+
+        plateau.setRightBoundary(Integer.valueOf(plateauBoundaries[0]));
+        plateau.setTopBoundary(Integer.valueOf(plateauBoundaries[1]));
+        plateau.setMowers(List.of(
+                new Mower(Integer.parseInt(firstMowerData[0]), Integer.parseInt(firstMowerData[1]), Direction.valueOf(firstMowerData[2]), firstMowerMovements),
+                new Mower(Integer.parseInt(secondMowerData[0]), Integer.parseInt(secondMowerData[1]), Direction.valueOf(secondMowerData[2]), secondMowerMovements)
+        ));
+
+        int index = 1;
+
+        for (Mower mower : plateau.getMowers()) {
+            if (mower.getX() > plateau.getRightBoundary() || mower.getY() > plateau.getTopBoundary())
+                throw new CustomException("Initial position of the mower number " + index + " is outside the plateau");
+            index++;
+        }
     }
 }

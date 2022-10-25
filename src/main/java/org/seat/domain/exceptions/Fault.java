@@ -1,4 +1,4 @@
-package org.seat.exception;
+package org.seat.domain.exceptions;
 
 
 public class Fault {
