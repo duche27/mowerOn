@@ -1,10 +1,10 @@
 package org.seat;
 
 import org.seat.domain.exceptions.CustomException;
-import org.seat.domain.service.dataLoader.IDataLoaderService;
-import org.seat.domain.service.dataLoader.TextFileDataLoaderService;
-import org.seat.domain.service.movementExecution.IMowerService;
-import org.seat.domain.service.movementExecution.SeatStandardMowerService;
+import org.seat.domain.service.loader.IDataLoaderService;
+import org.seat.domain.service.loader.TextFileDataLoaderService;
+import org.seat.domain.service.execution.IMowerService;
+import org.seat.domain.service.execution.SeatStandardMowerService;
 
 import java.util.List;
 
@@ -15,7 +15,6 @@ public class Main {
         List<String> instructionsList = dataLoaderService.loadData();
 
         IMowerService mowerService = new SeatStandardMowerService(instructionsList);
-
         mowerService.executeMowerMovements();
     }
 }

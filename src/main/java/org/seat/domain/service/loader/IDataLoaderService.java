@@ -1,4 +1,4 @@
-package org.seat.domain.service.dataLoader;
+package org.seat.domain.service.loader;
 
 import java.util.List;
 

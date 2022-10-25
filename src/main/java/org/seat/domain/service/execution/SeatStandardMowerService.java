@@ -1,12 +1,12 @@
-package org.seat.domain.service.movementExecution;
+package org.seat.domain.service.execution;
 
 import org.seat.domain.exceptions.CustomException;
 import org.seat.domain.enums.Movement;
 import org.seat.domain.enums.Direction;
 import org.seat.domain.model.Mower;
 import org.seat.domain.model.Plateau;
-import org.seat.domain.service.dataValidator.IDataValidatorService;
-import org.seat.domain.service.dataValidator.SeatDataValidatorService;
+import org.seat.domain.service.validator.IDataValidatorService;
+import org.seat.domain.service.validator.SeatDataValidatorService;
 
 import java.util.List;
 

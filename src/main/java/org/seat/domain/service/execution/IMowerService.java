@@ -1,4 +1,4 @@
-package org.seat.domain.service.movementExecution;
+package org.seat.domain.service.execution;
 
 public interface IMowerService {
 

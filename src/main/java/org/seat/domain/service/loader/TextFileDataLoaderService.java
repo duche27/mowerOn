@@ -1,7 +1,6 @@
-package org.seat.domain.service.dataLoader;
+package org.seat.domain.service.loader;
 
 import org.seat.Main;
-import org.seat.domain.service.dataLoader.IDataLoaderService;
 
 import java.io.BufferedReader;
 import java.io.File;

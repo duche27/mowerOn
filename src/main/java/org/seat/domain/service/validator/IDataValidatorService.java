@@ -1,4 +1,4 @@
-package org.seat.domain.service.dataValidator;
+package org.seat.domain.service.validator;
 
 import org.seat.domain.exceptions.CustomException;
 
