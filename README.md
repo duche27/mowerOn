@@ -24,3 +24,4 @@ but it is not possible to do it as it is right now.
 2. Develop a small UI or a JavaFX desktop application with UI, and create a simple controller for the communication with the API of the APP.
 3. Normally I would show the results (in case we don't have a UI) as a log or as a simple return. This way, the app wouldn't close itself with each execution, 
 and we could turn on the mowers as many times as we wanted.
+4. Add unit tests for the implemented service methods, since the ones that I added are complete integration tests
