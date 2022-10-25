@@ -1,0 +1,10 @@
+org\seat\Main.class
+org\seat\domain\exceptions\CustomException.class
+org\seat\domain\service\StandardMowerService$1.class
+org\seat\domain\exceptions\Fault.class
+org\seat\domain\model\Mower.class
+org\seat\domain\enums\Direction.class
+org\seat\domain\enums\Movement.class
+org\seat\domain\service\StandardMowerService.class
+org\seat\domain\service\IMowerService.class
+org\seat\domain\model\Plateau.class
