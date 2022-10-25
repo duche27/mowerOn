@@ -17,5 +17,3 @@ c
 3src/main/java/org/seat/domain/exceptions/Fault.java,d\d\dd9391b4f45352da0ef46687371069651281d1e1
 a
 1src/main/java/org/seat/domain/enums/Movement.java,9\7\97f36c980f450893d01703e587039f60a0c5368f
-`
-0src/main/java/org/seat/domain/model/Plateau.java,b\d\bd0312fb85b8e9995928c892223040b16cb5aeb6

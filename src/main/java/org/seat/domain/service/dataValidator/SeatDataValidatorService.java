@@ -1,7 +1,6 @@
 package org.seat.domain.service.dataValidator;
 
 import org.seat.domain.exceptions.CustomException;
-import org.seat.domain.service.dataValidator.IDataValidatorService;
 
 import java.util.List;
 import java.util.regex.Pattern;
