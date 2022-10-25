@@ -12,7 +12,7 @@ import java.util.regex.Pattern;
 public class StandardMowerService implements IMowerService {
 
     private final List<String> inputData;
-    private Plateau plateau = new Plateau();
+    private final Plateau plateau = new Plateau();
 
     public StandardMowerService(List<String> inputData) throws CustomException {
 
