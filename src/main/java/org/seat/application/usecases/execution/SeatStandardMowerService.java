@@ -25,35 +25,6 @@ public class SeatStandardMowerService implements IMowerService {
         plateau = initializePlateau(inputData);
     }
 
-    private Plateau initializePlateau(ExecuteDataCommand inputData) throws CustomException {
-
-        List<String> instructionsList = inputData.getInputData();
-        Plateau plateau = new Plateau();
-
-        String[] plateauBoundaries = instructionsList.get(0).split(" ");
-        String[] firstMowerData = instructionsList.get(1).split(" ");
-        String firstMowerMovements = instructionsList.get(2);
-        String[] secondMowerData = instructionsList.get(3).split(" ");
-        String secondMowerMovements = instructionsList.get(4);
-
-        plateau.setRightBoundary(Integer.valueOf(plateauBoundaries[0]));
-        plateau.setTopBoundary(Integer.valueOf(plateauBoundaries[1]));
-        plateau.setMowers(List.of(
-                new Mower(Integer.parseInt(firstMowerData[0]), Integer.parseInt(firstMowerData[1]), Direction.valueOf(firstMowerData[2]), firstMowerMovements),
-                new Mower(Integer.parseInt(secondMowerData[0]), Integer.parseInt(secondMowerData[1]), Direction.valueOf(secondMowerData[2]), secondMowerMovements)
-        ));
-
-        int index = 1;
-
-        for (Mower mower : plateau.getMowers()) {
-            if (mower.getX() > plateau.getRightBoundary() || mower.getY() > plateau.getTopBoundary())
-                throw new CustomException("Initial position of the mower number " + index + " is outside the plateau");
-            index++;
-        }
-
-        return plateau;
-    }
-
     /**
      * “L” and “R” make the mower spin 90 degrees left or
      * right respectively, without moving from its current spot. “M” means to move forward one
@@ -123,5 +94,37 @@ public class SeatStandardMowerService implements IMowerService {
                 case W -> mower.setDirection(Direction.N);
             }
         }
+    }
+
+    /**
+     * creates the plateau object for this concrete movement received as an input data
+     */
+    private Plateau initializePlateau(ExecuteDataCommand inputData) throws CustomException {
+
+        List<String> instructionsList = inputData.getInputData();
+        Plateau plateau = new Plateau();
+
+        String[] plateauBoundaries = instructionsList.get(0).split(" ");
+        String[] firstMowerData = instructionsList.get(1).split(" ");
+        String firstMowerMovements = instructionsList.get(2);
+        String[] secondMowerData = instructionsList.get(3).split(" ");
+        String secondMowerMovements = instructionsList.get(4);
+
+        plateau.setRightBoundary(Integer.valueOf(plateauBoundaries[0]));
+        plateau.setTopBoundary(Integer.valueOf(plateauBoundaries[1]));
+        plateau.setMowers(List.of(
+                new Mower(Integer.parseInt(firstMowerData[0]), Integer.parseInt(firstMowerData[1]), Direction.valueOf(firstMowerData[2]), firstMowerMovements),
+                new Mower(Integer.parseInt(secondMowerData[0]), Integer.parseInt(secondMowerData[1]), Direction.valueOf(secondMowerData[2]), secondMowerMovements)
+        ));
+
+        int index = 1;
+
+        for (Mower mower : plateau.getMowers()) {
+            if (mower.getX() > plateau.getRightBoundary() || mower.getY() > plateau.getTopBoundary())
+                throw new CustomException("Initial position of the mower number " + index + " is outside the plateau");
+            index++;
+        }
+
+        return plateau;
     }
 }
