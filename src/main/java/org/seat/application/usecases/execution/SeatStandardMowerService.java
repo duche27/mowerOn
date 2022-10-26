@@ -10,6 +10,8 @@ import org.seat.application.usecases.validator.SeatDataValidatorService;
 import org.seat.domain.usecases.execution.IMowerService;
 import org.seat.domain.usecases.validator.IDataValidatorService;
 
+import java.util.List;
+
 
 public class SeatStandardMowerService implements IMowerService {
 
@@ -20,7 +22,36 @@ public class SeatStandardMowerService implements IMowerService {
 
         dataValidator.validateInput(inputData);
 
-        plateau = new Plateau(inputData);
+        plateau = initializePlateau(inputData);
+    }
+
+    private Plateau initializePlateau(ExecuteDataCommand inputData) throws CustomException {
+
+        List<String> instructionsList = inputData.getInputData();
+        Plateau plateau = new Plateau();
+
+        String[] plateauBoundaries = instructionsList.get(0).split(" ");
+        String[] firstMowerData = instructionsList.get(1).split(" ");
+        String firstMowerMovements = instructionsList.get(2);
+        String[] secondMowerData = instructionsList.get(3).split(" ");
+        String secondMowerMovements = instructionsList.get(4);
+
+        plateau.setRightBoundary(Integer.valueOf(plateauBoundaries[0]));
+        plateau.setTopBoundary(Integer.valueOf(plateauBoundaries[1]));
+        plateau.setMowers(List.of(
+                new Mower(Integer.parseInt(firstMowerData[0]), Integer.parseInt(firstMowerData[1]), Direction.valueOf(firstMowerData[2]), firstMowerMovements),
+                new Mower(Integer.parseInt(secondMowerData[0]), Integer.parseInt(secondMowerData[1]), Direction.valueOf(secondMowerData[2]), secondMowerMovements)
+        ));
+
+        int index = 1;
+
+        for (Mower mower : plateau.getMowers()) {
+            if (mower.getX() > plateau.getRightBoundary() || mower.getY() > plateau.getTopBoundary())
+                throw new CustomException("Initial position of the mower number " + index + " is outside the plateau");
+            index++;
+        }
+
+        return plateau;
     }
 
     /**
