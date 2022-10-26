@@ -1,10 +1,6 @@
 
 w
 G.idea/sonarlint/issuestore/4/4/442292b8a7efeabbe4cc176709b833b1792140ec,8\6\863e0292fd7e9b3e74dafd6cc01f73ba76346482
-b
-2src/main/java/org/seat/domain/enums/Direction.java,3\6\365180e6b5c3712459da34cd7c9fb60686ab0b28
-a
-1src/main/java/org/seat/domain/enums/Movement.java,9\7\97f36c980f450893d01703e587039f60a0c5368f
 w
 G.idea/sonarlint/issuestore/d/d/dd9391b4f45352da0ef46687371069651281d1e1,5\6\56a105591e6de282b43f56fd45ad3a635125340d
 w
@@ -15,8 +11,6 @@ w
 G.idea/sonarlint/issuestore/8/6/863e0292fd7e9b3e74dafd6cc01f73ba76346482,3\0\30f9777ea696a18aa49d3e9967e93a4276065227
 7
 pom.xml,4\4\442292b8a7efeabbe4cc176709b833b1792140ec
-^
-.src/main/java/org/seat/domain/model/Mower.java,d\8\d89758c04f414b4bcfd1b4c8d8b0850797047392
 :
 
 .gitignore,a\5\a5cc2925ca8258af241be7e5b0381edf30266302

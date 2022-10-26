@@ -2,12 +2,13 @@ package org.seat.application.usecases.validator;
 
 import org.seat.application.commands.ExecuteDataCommand;
 import org.seat.domain.exceptions.CustomException;
+import org.seat.domain.usecases.validator.IDataValidatorService;
 
 import java.util.List;
 import java.util.regex.Pattern;
 
 
-public class SeatDataValidatorService implements IDataValidatorService {
+public class SeatDataValidatorService implements IDataValidatorService<ExecuteDataCommand> {
 
     @Override
     public void validateInput(ExecuteDataCommand inputData) throws CustomException {

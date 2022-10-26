@@ -2,6 +2,7 @@ package org.seat.application.usecases.loader;
 
 import org.seat.Main;
 import org.seat.application.commands.ExecuteDataCommand;
+import org.seat.domain.usecases.loader.IDataLoaderService;
 
 import java.io.BufferedReader;
 import java.io.File;
@@ -11,7 +12,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 
-public class TextFileDataLoaderService implements IDataLoaderService {
+public class TextFileDataLoaderService implements IDataLoaderService<ExecuteDataCommand> {
 
     private final String inputFileName;
 

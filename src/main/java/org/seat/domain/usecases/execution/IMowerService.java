@@ -1,4 +1,4 @@
-package org.seat.application.usecases.execution;
+package org.seat.domain.usecases.execution;
 
 public interface IMowerService {
 
