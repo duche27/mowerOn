@@ -1,7 +1,7 @@
-package org.seat.domain.service.loader;
+package org.seat.application.usecases.loader;
 
 import org.seat.Main;
-import org.seat.application.command.ExecuteDataCommand;
+import org.seat.application.commands.ExecuteDataCommand;
 
 import java.io.BufferedReader;
 import java.io.File;

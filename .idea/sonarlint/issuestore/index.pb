@@ -1,36 +1,32 @@
 
 w
 G.idea/sonarlint/issuestore/4/4/442292b8a7efeabbe4cc176709b833b1792140ec,8\6\863e0292fd7e9b3e74dafd6cc01f73ba76346482
-m
-=src/main/java/org/seat/domain/exceptions/CustomException.java,1\1\11e516ddc51720687282106d3f2846c41c385ed9
 b
 2src/main/java/org/seat/domain/enums/Direction.java,3\6\365180e6b5c3712459da34cd7c9fb60686ab0b28
-c
-3src/main/java/org/seat/domain/exceptions/Fault.java,d\d\dd9391b4f45352da0ef46687371069651281d1e1
 a
 1src/main/java/org/seat/domain/enums/Movement.java,9\7\97f36c980f450893d01703e587039f60a0c5368f
-w
-G.idea/sonarlint/issuestore/e/c/ec20a23cb6bad48e00da788c0e1049052b2dc60b,d\e\de3f129fb4bc6a2c0215a80d88aae47549fccd32
-w
-G.idea/sonarlint/issuestore/b/6/b6334ea218f6a2d19ccad8e66b02130d68db6769,7\2\72cb429818e6f6accab0fbba28cdd310516fa7bf
 w
 G.idea/sonarlint/issuestore/d/d/dd9391b4f45352da0ef46687371069651281d1e1,5\6\56a105591e6de282b43f56fd45ad3a635125340d
 w
 G.idea/sonarlint/issuestore/3/6/365180e6b5c3712459da34cd7c9fb60686ab0b28,9\8\98c7f1a78789b6e46e7ef0bff49fb51b0b31847c
-w
-G.idea/sonarlint/issuestore/2/0/204de9a9da6f1db6a4cdc5356c5760cb837d23f9,e\b\ebb482b986284448c2660ce9c0b3cc0d32c46dc2
-w
-G.idea/sonarlint/issuestore/6/a/6a50b33926d9eea25b23d1913be305422860bf28,b\7\b7a42cb355d3df8f12f2e39d3ab5f5cda94e0d3c
 w
 G.idea/sonarlint/issuestore/9/7/97f36c980f450893d01703e587039f60a0c5368f,e\d\edae4e207753c3791adacbf98be9959cfa3d6f5c
 w
 G.idea/sonarlint/issuestore/8/6/863e0292fd7e9b3e74dafd6cc01f73ba76346482,3\0\30f9777ea696a18aa49d3e9967e93a4276065227
 7
 pom.xml,4\4\442292b8a7efeabbe4cc176709b833b1792140ec
-9
-	README.md,8\e\8ec9a00bfd09b3190ac6b22251dbb1aa95a0579d
 ^
 .src/main/java/org/seat/domain/model/Mower.java,d\8\d89758c04f414b4bcfd1b4c8d8b0850797047392
 :
 
 .gitignore,a\5\a5cc2925ca8258af241be7e5b0381edf30266302
+r
+Bsrc/main/java/org/seat/domain/service/execution/IMowerService.java,b\3\b305ace9b3e79967296ee81897978b48c3b7b9d7
+r
+Bsrc/main/java/org/seat/application/command/ExecuteDataCommand.java,8\8\88aa88bded9b2f9058fad9af0de73559f598e868
+t
+Dsrc/main/java/org/seat/domain/service/loader/IDataLoaderService.java,f\7\f7ce94b96aecf9e328028b837847364104465616
+z
+Jsrc/main/java/org/seat/domain/service/validator/IDataValidatorService.java,c\7\c7e31f55bbdc8d7ebdbfa300d9d06f525e7936f3
+{
+Ksrc/main/java/org/seat/domain/service/loader/TextFileDataLoaderService.java,a\3\a39a01e72055617beb5ad4db2c09fb74c8c15189

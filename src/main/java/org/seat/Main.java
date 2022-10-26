@@ -1,11 +1,11 @@
 package org.seat;
 
-import org.seat.application.command.ExecuteDataCommand;
+import org.seat.application.commands.ExecuteDataCommand;
 import org.seat.domain.exceptions.CustomException;
-import org.seat.domain.service.loader.IDataLoaderService;
-import org.seat.domain.service.loader.TextFileDataLoaderService;
-import org.seat.domain.service.execution.IMowerService;
-import org.seat.domain.service.execution.SeatStandardMowerService;
+import org.seat.application.usecases.loader.IDataLoaderService;
+import org.seat.application.usecases.loader.TextFileDataLoaderService;
+import org.seat.application.usecases.execution.IMowerService;
+import org.seat.application.usecases.execution.SeatStandardMowerService;
 
 
 public class Main {

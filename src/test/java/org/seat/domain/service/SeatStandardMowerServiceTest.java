@@ -1,10 +1,10 @@
 package org.seat.domain.service;
 
 import org.junit.jupiter.api.*;
-import org.seat.application.command.ExecuteDataCommand;
+import org.seat.application.commands.ExecuteDataCommand;
 import org.seat.domain.exceptions.CustomException;
-import org.seat.domain.service.execution.IMowerService;
-import org.seat.domain.service.execution.SeatStandardMowerService;
+import org.seat.application.usecases.execution.IMowerService;
+import org.seat.application.usecases.execution.SeatStandardMowerService;
 
 import java.io.ByteArrayOutputStream;
 import java.io.PrintStream;

@@ -1,4 +1,4 @@
-package org.seat.application.command;
+package org.seat.application.commands;
 
 import java.util.List;
 

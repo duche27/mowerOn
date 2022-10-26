@@ -1,13 +1,13 @@
-package org.seat.domain.service.execution;
+package org.seat.application.usecases.execution;
 
-import org.seat.application.command.ExecuteDataCommand;
+import org.seat.application.commands.ExecuteDataCommand;
+import org.seat.application.usecases.validator.IDataValidatorService;
 import org.seat.domain.exceptions.CustomException;
 import org.seat.domain.enums.Movement;
 import org.seat.domain.enums.Direction;
 import org.seat.domain.model.Mower;
 import org.seat.domain.model.Plateau;
-import org.seat.domain.service.validator.IDataValidatorService;
-import org.seat.domain.service.validator.SeatDataValidatorService;
+import org.seat.application.usecases.validator.SeatDataValidatorService;
 
 
 public class SeatStandardMowerService implements IMowerService {

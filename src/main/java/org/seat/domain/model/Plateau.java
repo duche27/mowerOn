@@ -1,6 +1,6 @@
 package org.seat.domain.model;
 
-import org.seat.application.command.ExecuteDataCommand;
+import org.seat.application.commands.ExecuteDataCommand;
 import org.seat.domain.enums.Direction;
 import org.seat.domain.exceptions.CustomException;
 
