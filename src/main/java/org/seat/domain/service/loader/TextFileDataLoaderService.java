@@ -1,6 +1,7 @@
 package org.seat.domain.service.loader;
 
 import org.seat.Main;
+import org.seat.application.command.ExecuteDataCommand;
 
 import java.io.BufferedReader;
 import java.io.File;
@@ -25,7 +26,7 @@ public class TextFileDataLoaderService implements IDataLoaderService {
      * @return List<String> with the lines that have been read
      */
     @Override
-    public List<String> loadData() {
+    public ExecuteDataCommand loadData() {
 
         ClassLoader classLoader = Main.class.getClassLoader();
         File inputFile;
@@ -47,6 +48,6 @@ public class TextFileDataLoaderService implements IDataLoaderService {
             e.printStackTrace();
         }
 
-        return instructionList;
+        return new ExecuteDataCommand(instructionList);
     }
 }

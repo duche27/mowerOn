@@ -1,5 +1,6 @@
 package org.seat.domain.model;
 
+import org.seat.application.command.ExecuteDataCommand;
 import org.seat.domain.enums.Direction;
 import org.seat.domain.exceptions.CustomException;
 
@@ -11,35 +12,25 @@ public class Plateau {
     private Integer topBoundary;
     private List<Mower> mowers;
 
-    public Plateau(List<String> instructionsList) throws CustomException {
-        initializePlateauData(instructionsList);
+    public Plateau(ExecuteDataCommand instructionsData) throws CustomException {
+        initializePlateauData(instructionsData);
     }
 
     public Integer getRightBoundary() {
         return rightBoundary;
     }
 
-    public void setRightBoundary(Integer rightBoundary) {
-        this.rightBoundary = rightBoundary;
-    }
-
     public Integer getTopBoundary() {
         return topBoundary;
-    }
-
-    public void setTopBoundary(Integer topBoundary) {
-        this.topBoundary = topBoundary;
     }
 
     public List<Mower> getMowers() {
         return mowers;
     }
 
-    public void setMowers(List<Mower> mowers) {
-        this.mowers = mowers;
-    }
+    private void initializePlateauData(ExecuteDataCommand instructionsData) throws CustomException {
 
-    private void initializePlateauData(List<String> instructionsList) throws CustomException {
+        List<String> instructionsList = instructionsData.getInputData();
 
         String[] plateauBoundaries = instructionsList.get(0).split(" ");
         String[] firstMowerData = instructionsList.get(1).split(" ");

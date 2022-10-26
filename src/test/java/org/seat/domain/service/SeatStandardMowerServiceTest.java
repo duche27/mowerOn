@@ -1,6 +1,7 @@
 package org.seat.domain.service;
 
 import org.junit.jupiter.api.*;
+import org.seat.application.command.ExecuteDataCommand;
 import org.seat.domain.exceptions.CustomException;
 import org.seat.domain.service.execution.IMowerService;
 import org.seat.domain.service.execution.SeatStandardMowerService;
@@ -32,10 +33,12 @@ class SeatStandardMowerServiceTest {
     void executeMovements_dataOK_expectResultOK() throws CustomException {
 
         // given
-        List<String> inputOK = List.of("5 5", "1 2 N", "LMLMLMLMM", "3 3 E", "MMRMMRMRRM");
+        ExecuteDataCommand executeDataCommandInputOK = new ExecuteDataCommand(
+                List.of("5 5", "1 2 N", "LMLMLMLMM", "3 3 E", "MMRMMRMRRM")
+        );
 
         // when
-        IMowerService mowerService = new SeatStandardMowerService(inputOK);
+        IMowerService mowerService = new SeatStandardMowerService(executeDataCommandInputOK);
         mowerService.executeMowerMovements();
 
         // then
@@ -48,12 +51,14 @@ class SeatStandardMowerServiceTest {
     void executeMovements_dataWithout5LinesNotOK_expectException() {
 
         // given
-        List<String> inputWithout5LinesNotOK = List.of("3 4", "1 4 S");
+        ExecuteDataCommand executeDataCommandInputWithout5LinesNotOK = new ExecuteDataCommand(
+                List.of("3 4", "1 4 S")
+        );
         String expectedMessage = "only 5 lines are needed";
 
         // when
         CustomException exception = assertThrows(CustomException.class, () ->
-            new SeatStandardMowerService(inputWithout5LinesNotOK).executeMowerMovements()
+            new SeatStandardMowerService(executeDataCommandInputWithout5LinesNotOK).executeMowerMovements()
         );
 
         String actualMessage = exception.getFault().getResultDescription();
@@ -67,12 +72,14 @@ class SeatStandardMowerServiceTest {
     void executeMovements_firstMowerOutOfBoundariesNotOK_expectException() {
 
         // given
-        List<String> inputFirstMowerOutOfBoundariesNotOK = List.of("5 5", "6 2 N", "LMLMLMLMM", "3 3 E", "MMRMMRMRRM");
+        ExecuteDataCommand executeDataCommandInputFirstMowerOutOfBoundariesNotOK = new ExecuteDataCommand(
+                List.of("5 5", "6 2 N", "LMLMLMLMM", "3 3 E", "MMRMMRMRRM")
+        );
         String expectedMessage = "Initial position of the mower number 1 is outside the plateau";
 
         // when
         CustomException exception = assertThrows(CustomException.class, () ->
-                new SeatStandardMowerService(inputFirstMowerOutOfBoundariesNotOK).executeMowerMovements()
+                new SeatStandardMowerService(executeDataCommandInputFirstMowerOutOfBoundariesNotOK).executeMowerMovements()
         );
 
         String actualMessage = exception.getFault().getResultDescription();
@@ -86,12 +93,14 @@ class SeatStandardMowerServiceTest {
     void executeMovements_incorrectMovementsNotOK_expectException() {
 
         // given
-        List<String> inputIncorrectMovementsNotOK = List.of("5 5", "6 2 N", "ZXY", "3 3 E", "AAA");
+        ExecuteDataCommand executeDataCommandInputIncorrectMovementsNotOK = new ExecuteDataCommand(
+                List.of("5 5", "6 2 N", "ZXY", "3 3 E", "AAA")
+        );
         String expectedMessage = "line 3 and 5 can only have the values “L” for left turn, “R” for right turn and ”M” for movement";
 
         // when
         CustomException exception = assertThrows(CustomException.class, () ->
-                new SeatStandardMowerService(inputIncorrectMovementsNotOK).executeMowerMovements()
+                new SeatStandardMowerService(executeDataCommandInputIncorrectMovementsNotOK).executeMowerMovements()
         );
 
         String actualMessage = exception.getFault().getResultDescription();

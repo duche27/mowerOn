@@ -1,5 +1,6 @@
 package org.seat.domain.service.execution;
 
+import org.seat.application.command.ExecuteDataCommand;
 import org.seat.domain.exceptions.CustomException;
 import org.seat.domain.enums.Movement;
 import org.seat.domain.enums.Direction;
@@ -8,17 +9,13 @@ import org.seat.domain.model.Plateau;
 import org.seat.domain.service.validator.IDataValidatorService;
 import org.seat.domain.service.validator.SeatDataValidatorService;
 
-import java.util.List;
 
 public class SeatStandardMowerService implements IMowerService {
 
-    private final List<String> inputData;
-    private final IDataValidatorService dataValidator = new SeatDataValidatorService();
     private final Plateau plateau;
+    private final IDataValidatorService dataValidator = new SeatDataValidatorService();
 
-    public SeatStandardMowerService(List<String> inputData) throws CustomException {
-
-        this.inputData = inputData;
+    public SeatStandardMowerService(ExecuteDataCommand inputData) throws CustomException {
 
         dataValidator.validateInput(inputData);
 

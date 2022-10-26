@@ -1,5 +1,6 @@
 package org.seat.domain.service.validator;
 
+import org.seat.application.command.ExecuteDataCommand;
 import org.seat.domain.exceptions.CustomException;
 
 import java.util.List;
@@ -9,7 +10,9 @@ import java.util.regex.Pattern;
 public class SeatDataValidatorService implements IDataValidatorService {
 
     @Override
-    public void validateInput(List<String> instructionsList) throws CustomException {
+    public void validateInput(ExecuteDataCommand inputData) throws CustomException {
+
+        List<String> instructionsList = inputData.getInputData();
 
         StringBuilder errorMessage = new StringBuilder();
         int index = 1;

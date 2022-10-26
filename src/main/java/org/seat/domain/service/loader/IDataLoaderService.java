@@ -1,8 +1,8 @@
 package org.seat.domain.service.loader;
 
-import java.util.List;
+import org.seat.application.command.ExecuteDataCommand;
 
 public interface IDataLoaderService {
 
-    List<String> loadData();
+    ExecuteDataCommand loadData();
 }
