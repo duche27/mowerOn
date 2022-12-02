@@ -14,13 +14,25 @@ G.idea/sonarlint/issuestore/8/6/863e0292fd7e9b3e74dafd6cc01f73ba76346482,3\0\30
 :
 
 .gitignore,a\5\a5cc2925ca8258af241be7e5b0381edf30266302
-r
-Bsrc/main/java/org/seat/domain/service/execution/IMowerService.java,b\3\b305ace9b3e79967296ee81897978b48c3b7b9d7
-r
-Bsrc/main/java/org/seat/application/command/ExecuteDataCommand.java,8\8\88aa88bded9b2f9058fad9af0de73559f598e868
-t
-Dsrc/main/java/org/seat/domain/service/loader/IDataLoaderService.java,f\7\f7ce94b96aecf9e328028b837847364104465616
-z
-Jsrc/main/java/org/seat/domain/service/validator/IDataValidatorService.java,c\7\c7e31f55bbdc8d7ebdbfa300d9d06f525e7936f3
-{
-Ksrc/main/java/org/seat/domain/service/loader/TextFileDataLoaderService.java,a\3\a39a01e72055617beb5ad4db2c09fb74c8c15189
+9
+	README.md,8\e\8ec9a00bfd09b3190ac6b22251dbb1aa95a0579d
+w
+Gsrc/test/java/org/seat/domain/service/SeatStandardMowerServiceTest.java,2\5\25bdae7b282d3cf9c3b68be4da5e61a1624ad430
+b
+2src/main/java/org/seat/domain/enums/Direction.java,3\6\365180e6b5c3712459da34cd7c9fb60686ab0b28
+a
+1src/main/java/org/seat/domain/enums/Movement.java,9\7\97f36c980f450893d01703e587039f60a0c5368f
+m
+=src/main/java/org/seat/domain/exceptions/CustomException.java,1\1\11e516ddc51720687282106d3f2846c41c385ed9
+c
+3src/main/java/org/seat/domain/exceptions/Fault.java,d\d\dd9391b4f45352da0ef46687371069651281d1e1
+^
+.src/main/java/org/seat/domain/model/Mower.java,d\8\d89758c04f414b4bcfd1b4c8d8b0850797047392
+s
+Csrc/main/java/org/seat/domain/usecases/execution/IMowerService.java,8\0\806b650bfb6c99ecc74d04757cc47642a708cc3b
+`
+0src/main/java/org/seat/domain/model/Plateau.java,b\d\bd0312fb85b8e9995928c892223040b16cb5aeb6
+s
+Csrc/main/java/org/seat/application/commands/ExecuteDataCommand.java,9\2\928c13bcfe710364ca5bee5cb6d02105b72bc6b7
+u
+Esrc/main/java/org/seat/domain/usecases/loader/IDataLoaderService.java,7\c\7cf8b1cf1a048003d137bcd858a9c9294ca981e6

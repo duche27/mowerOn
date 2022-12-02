@@ -32,7 +32,7 @@ public class TextFileDataLoaderService implements IDataLoaderService<ExecuteData
         ClassLoader classLoader = Main.class.getClassLoader();
         File inputFile;
         try {
-            inputFile = new File(Objects.requireNonNull(classLoader.getResource(inputFileName).getPath()));
+            inputFile = new File(Objects.requireNonNull(classLoader.getResource(inputFileName)).getPath());
         } catch (NullPointerException e) {
             throw new NullPointerException("Input file not found in the resources folder");
         }
