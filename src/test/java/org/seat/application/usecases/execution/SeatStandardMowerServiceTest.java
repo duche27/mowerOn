@@ -1,4 +1,4 @@
-package org.seat.domain.service;
+package org.seat.application.usecases.execution;
 
 import org.junit.jupiter.api.*;
 import org.seat.application.commands.ExecuteDataCommand;
